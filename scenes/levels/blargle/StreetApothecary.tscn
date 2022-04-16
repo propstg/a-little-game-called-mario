@@ -1,0 +1,523 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/CameraFollow.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/EndPortal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/boxes/CoinBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/ALittleNameCalle.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/SpawnPoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/Themes/Default/default.tres" type="Theme" id=7]
+[ext_resource path="res://scenes/enemies/AngryRandal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/IntralevelPortal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/levels/blargle/StreetApothecary/ApothecaryInventory.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/blargle/StreetApothecary/StreetApothecary.gd" type="Script" id=11]
+[ext_resource path="res://scenes/levels/blargle/StreetApothecary/IngredientBox.gd" type="Script" id=12]
+[ext_resource path="res://scenes/doodads/normal_cactus.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/CoinInventoryHandle.tscn" type="PackedScene" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="TileMap2" type="TileMap"]
+tile_set = ExtResource( 2 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -327627, 2, 0, -327626, 2, 0, -327625, 2, 0, -327624, 2, 0, -327623, 2, 0, -327622, 2, 0, -327621, 2, 0, -327620, 2, 0, -327619, 2, 0, -327618, 2, 0, -327617, 2, 0, -327616, 2, 0, -327615, 2, 0, -327614, 2, 0, -327613, 2, 0, -327612, 2, 0, -327611, 2, 0, -327610, 2, 0, -327609, 2, 0, -327608, 2, 0, -327607, 2, 0, -327606, 1, 0, -327605, 1, 0, -327604, 1, 0, -327603, 1, 0, -327602, 1, 0, -327601, 1, 0, -327600, 1, 0, -327599, 0, 0, -327598, 0, 0, -327597, 0, 0, -327596, 0, 0, -327595, 0, 0, -327594, 0, 0, -327593, 0, 0, -327592, 0, 0, -327591, 0, 0, -327590, 0, 0, -327589, 0, 0, -327588, 0, 0, -327587, 0, 0, -327586, 0, 0, -327585, 0, 0, -327584, 0, 0, -327583, 0, 0, -327582, 0, 0, -327581, 0, 0, -327580, 0, 0, -327579, 0, 0, -327578, 0, 0, -327577, 0, 0, -262091, 2, 0, -262090, 1, 0, -262089, 1, 0, -262088, 1, 0, -262087, 1, 0, -262086, 1, 0, -262085, 1, 0, -262084, 1, 0, -262083, 1, 0, -262082, 1, 0, -262081, 1, 0, -262080, 1, 0, -262079, 1, 0, -262078, 1, 0, -262077, 1, 0, -262076, 1, 0, -262075, 1, 0, -262074, 1, 0, -262073, 1, 0, -262072, 1, 0, -262071, 2, 0, -262070, 1, 0, -262069, 1, 0, -262068, 1, 0, -262067, 1, 0, -262066, 1, 0, -262065, 1, 0, -262064, 1, 0, -262063, 0, 0, -262062, 1, 0, -262061, 1, 0, -262060, 1, 0, -262059, 1, 0, -262058, 1, 0, -262057, 1, 0, -262056, 1, 0, -262055, 1, 0, -262054, 1, 0, -262053, 1, 0, -262052, 1, 0, -262051, 1, 0, -262050, 1, 0, -262049, 1, 0, -262048, 1, 0, -262047, 1, 0, -262046, 1, 0, -262045, 1, 0, -262044, 1, 0, -262043, 1, 0, -262042, 1, 0, -262041, 0, 0, -196555, 2, 0, -196554, 1, 0, -196553, 1, 0, -196552, 1, 0, -196551, 1, 0, -196550, 1, 0, -196549, 1, 0, -196548, 1, 0, -196547, 1, 0, -196546, 1, 0, -196545, 1, 0, -196544, 1, 0, -196543, 1, 0, -196542, 1, 0, -196541, 1, 0, -196540, 1, 0, -196539, 1, 0, -196538, 1, 0, -196537, 1, 0, -196536, 1, 0, -196535, 2, 0, -196534, 1, 0, -196533, 1, 0, -196532, 1, 0, -196531, 1, 0, -196530, 1, 0, -196529, 1, 0, -196528, 1, 0, -196527, 0, 0, -196526, 1, 0, -196525, 1, 0, -196524, 1, 0, -196523, 1, 0, -196522, 1, 0, -196521, 1, 0, -196520, 1, 0, -196519, 1, 0, -196518, 1, 0, -196517, 1, 0, -196516, 1, 0, -196515, 1, 0, -196514, 1, 0, -196513, 1, 0, -196512, 1, 0, -196511, 1, 0, -196510, 1, 0, -196509, 1, 0, -196508, 1, 0, -196507, 1, 0, -196506, 1, 0, -196505, 0, 0, -131019, 2, 0, -131018, 1, 0, -131017, 1, 0, -131016, 1, 0, -131015, 1, 0, -131014, 1, 0, -131013, 1, 0, -131012, 1, 0, -131011, 1, 0, -131010, 1, 0, -131009, 1, 0, -131008, 1, 0, -131007, 1, 0, -131006, 1, 0, -131005, 1, 0, -131004, 1, 0, -131003, 1, 0, -131002, 1, 0, -131001, 1, 0, -131000, 1, 0, -130999, 2, 0, -130998, 1, 0, -130997, 1, 0, -130996, 1, 0, -130995, 1, 0, -130994, 1, 0, -130993, 1, 0, -130992, 1, 0, -130991, 0, 0, -130990, 1, 0, -130989, 1, 0, -130988, 1, 0, -130987, 1, 0, -130986, 1, 0, -130985, 1, 0, -130984, 1, 0, -130983, 1, 0, -130982, 1, 0, -130981, 1, 0, -130980, 1, 0, -130979, 1, 0, -130978, 1, 0, -130977, 1, 0, -130976, 1, 0, -130975, 1, 0, -130974, 1, 0, -130973, 1, 0, -130972, 1, 0, -130971, 1, 0, -130970, 1, 0, -130969, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 1, 0, -65517, 1, 0, -65516, 1, 0, -65515, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, -65506, 0, 0, -65505, 0, 0, -65504, 0, 0, -65503, 0, 0, -65502, 0, 0, -65501, 0, 0, -65500, 0, 0, -65499, 0, 0, -65498, 0, 0, -65497, 0, 0, -65496, 0, 0, -65495, 0, 0, -65494, 0, 0, -65493, 0, 0, -65492, 0, 0, -65491, 1, 0, -65490, 1, 0, -65489, 1, 0, -65488, 1, 0, -65487, 1, 0, -65486, 1, 0, -65485, 1, 0, -65484, 1, 0, -65483, 2, 0, -65482, 1, 0, -65481, 1, 0, -65480, 1, 0, -65479, 1, 0, -65478, 1, 0, -65477, 1, 0, -65476, 1, 0, -65475, 1, 0, -65474, 1, 0, -65473, 2, 0, -65472, 1, 0, -65471, 1, 0, -65470, 1, 0, -65469, 1, 0, -65468, 1, 0, -65467, 1, 0, -65466, 1, 0, -65465, 1, 0, -65464, 1, 0, -65463, 2, 0, -65462, 1, 0, -65461, 1, 0, -65460, 1, 0, -65459, 1, 0, -65458, 1, 0, -65457, 1, 0, -65456, 1, 0, -65455, 0, 0, -65454, 1, 0, -65453, 1, 0, -65452, 1, 0, -65451, 1, 0, -65450, 1, 0, -65449, 1, 0, -65448, 1, 0, -65447, 1, 0, -65446, 1, 0, -65445, 1, 0, -65444, 1, 0, -65443, 1, 0, -65442, 1, 0, -65441, 1, 0, -65440, 1, 0, -65439, 1, 0, -65438, 1, 0, -65437, 1, 0, -65436, 1, 0, -65435, 1, 0, -65434, 1, 0, -65433, 0, 0, 65535, 0, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 0, 0, 18, 1, 0, 19, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 0, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 30, 1, 0, 31, 1, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0, 40, 1, 0, 41, 1, 0, 42, 1, 0, 43, 1, 0, 44, 0, 0, 45, 1, 0, 46, 1, 0, 47, 1, 0, 48, 1, 0, 49, 1, 0, 50, 1, 0, 51, 1, 0, 52, 1, 0, 53, 2, 0, 54, 1, 0, 55, 1, 0, 56, 1, 0, 57, 1, 0, 58, 1, 0, 59, 1, 0, 60, 1, 0, 61, 1, 0, 62, 2, 0, 63, 2, 0, 64, 2, 0, 65, 1, 0, 66, 1, 0, 67, 1, 0, 68, 1, 0, 69, 1, 0, 70, 1, 0, 71, 1, 0, 72, 1, 0, 73, 2, 0, 74, 1, 0, 75, 1, 0, 76, 1, 0, 77, 1, 0, 78, 1, 0, 79, 1, 0, 80, 1, 0, 81, 0, 0, 82, 1, 0, 83, 1, 0, 84, 1, 0, 85, 1, 0, 86, 1, 0, 87, 1, 0, 88, 1, 0, 89, 1, 0, 90, 1, 0, 91, 1, 0, 92, 1, 0, 93, 1, 0, 94, 1, 0, 95, 1, 0, 96, 1, 0, 97, 1, 0, 98, 1, 0, 99, 1, 0, 100, 1, 0, 101, 1, 0, 102, 1, 0, 103, 0, 0, 131071, 0, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 0, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65557, 1, 0, 65558, 1, 0, 65559, 1, 0, 65560, 1, 0, 65561, 0, 0, 65562, 1, 0, 65563, 1, 0, 65564, 1, 0, 65565, 1, 0, 65566, 1, 0, 65567, 1, 0, 65568, 1, 0, 65569, 1, 0, 65570, 1, 0, 65571, 1, 0, 65572, 1, 0, 65573, 1, 0, 65574, 1, 0, 65575, 1, 0, 65576, 1, 0, 65577, 1, 0, 65578, 1, 0, 65579, 1, 0, 65580, 0, 0, 65581, 1, 0, 65582, 1, 0, 65583, 1, 0, 65584, 1, 0, 65585, 1, 0, 65586, 1, 0, 65587, 1, 0, 65588, 1, 0, 65589, 2, 0, 65590, 1, 0, 65591, 1, 0, 65592, 1, 0, 65593, 1, 0, 65594, 2, 0, 65595, 1, 0, 65596, 1, 0, 65597, 2, 0, 65598, 2, 0, 65599, 2, 0, 65600, 2, 0, 65601, 2, 0, 65602, 1, 0, 65603, 1, 0, 65604, 2, 0, 65605, 1, 0, 65606, 1, 0, 65607, 1, 0, 65608, 1, 0, 65609, 2, 0, 65610, 1, 0, 65611, 1, 0, 65612, 1, 0, 65613, 1, 0, 65614, 1, 0, 65615, 1, 0, 65616, 1, 0, 65617, 0, 0, 65618, 1, 0, 65619, 1, 0, 65620, 1, 0, 65621, 1, 0, 65622, 1, 0, 65623, 1, 0, 65624, 1, 0, 65625, 1, 0, 65626, 1, 0, 65627, 1, 0, 65628, 1, 0, 65629, 1, 0, 65630, 1, 0, 65631, 1, 0, 65632, 1, 0, 65633, 1, 0, 65634, 1, 0, 65635, 1, 0, 65636, 1, 0, 65637, 1, 0, 65638, 1, 0, 65639, 0, 0, 196607, 0, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 131088, 1, 0, 131089, 0, 0, 131090, 1, 0, 131091, 1, 0, 131092, 1, 0, 131093, 1, 0, 131094, 1, 0, 131095, 1, 0, 131096, 1, 0, 131097, 0, 0, 131098, 1, 0, 131099, 1, 0, 131100, 1, 0, 131101, 1, 0, 131102, 1, 0, 131103, 1, 0, 131104, 1, 0, 131105, 1, 0, 131106, 1, 0, 131107, 1, 0, 131108, 1, 0, 131109, 1, 0, 131110, 1, 0, 131111, 1, 0, 131112, 1, 0, 131113, 1, 0, 131114, 1, 0, 131115, 1, 0, 131116, 0, 0, 131117, 1, 0, 131118, 1, 0, 131119, 1, 0, 131120, 1, 0, 131121, 1, 0, 131122, 1, 0, 131123, 1, 0, 131124, 1, 0, 131125, 2, 0, 131126, 1, 0, 131127, 1, 0, 131128, 1, 0, 131129, 2, 0, 131130, 2, 0, 131131, 2, 0, 131132, 1, 0, 131133, 5, 0, 131134, 1, 0, 131135, 1, 0, 131136, 1, 0, 131137, 5, 0, 131138, 1, 0, 131139, 2, 0, 131140, 2, 0, 131141, 2, 0, 131142, 1, 0, 131143, 1, 0, 131144, 1, 0, 131145, 2, 0, 131146, 1, 0, 131147, 1, 0, 131148, 1, 0, 131149, 1, 0, 131150, 1, 0, 131151, 1, 0, 131152, 1, 0, 131153, 0, 0, 131154, 1, 0, 131155, 1, 0, 131156, 1, 0, 131157, 1, 0, 131158, 1, 0, 131159, 1, 0, 131160, 1, 0, 131161, 1, 0, 131162, 1, 0, 131163, 1, 0, 131164, 1, 0, 131165, 1, 0, 131166, 1, 0, 131167, 1, 0, 131168, 1, 0, 131169, 1, 0, 131170, 1, 0, 131171, 1, 0, 131172, 1, 0, 131173, 1, 0, 131174, 1, 0, 131175, 0, 0, 262143, 0, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 196624, 1, 0, 196625, 0, 0, 196626, 1, 0, 196627, 1, 0, 196628, 1, 0, 196629, 1, 0, 196630, 1, 0, 196631, 1, 0, 196632, 1, 0, 196633, 0, 0, 196634, 1, 0, 196635, 1, 0, 196636, 1, 0, 196637, 1, 0, 196638, 1, 0, 196639, 1, 0, 196640, 1, 0, 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 196644, 1, 0, 196645, 1, 0, 196646, 1, 0, 196647, 1, 0, 196648, 1, 0, 196649, 1, 0, 196650, 1, 0, 196651, 1, 0, 196652, 0, 0, 196653, 1, 0, 196654, 1, 0, 196655, 1, 0, 196656, 1, 0, 196657, 1, 0, 196658, 1, 0, 196659, 1, 0, 196660, 1, 0, 196661, 2, 0, 196662, 1, 0, 196663, 1, 0, 196664, 2, 0, 196665, 2, 0, 196666, 2, 0, 196667, 2, 0, 196668, 2, 0, 196669, 5, 0, 196670, 1, 0, 196671, 1, 0, 196672, 1, 0, 196673, 5, 0, 196674, 2, 0, 196675, 2, 0, 196676, 2, 0, 196677, 2, 0, 196678, 2, 0, 196679, 1, 0, 196680, 1, 0, 196681, 2, 0, 196682, 1, 0, 196683, 1, 0, 196684, 1, 0, 196685, 1, 0, 196686, 1, 0, 196687, 1, 0, 196688, 1, 0, 196689, 0, 0, 196690, 1, 0, 196691, 1, 0, 196692, 1, 0, 196693, 1, 0, 196694, 1, 0, 196695, 1, 0, 196696, 1, 0, 196697, 1, 0, 196698, 1, 0, 196699, 1, 0, 196700, 1, 0, 196701, 1, 0, 196702, 1, 0, 196703, 1, 0, 196704, 1, 0, 196705, 1, 0, 196706, 1, 0, 196707, 1, 0, 196708, 1, 0, 196709, 1, 0, 196710, 1, 0, 196711, 0, 0, 327679, 0, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 0, 0, 262162, 1, 0, 262163, 1, 0, 262164, 1, 0, 262165, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 0, 0, 262170, 1, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 1, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 262180, 1, 0, 262181, 1, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262185, 1, 0, 262186, 1, 0, 262187, 1, 0, 262188, 0, 0, 262189, 1, 0, 262190, 1, 0, 262191, 1, 0, 262192, 1, 0, 262193, 1, 0, 262194, 1, 0, 262195, 1, 0, 262196, 1, 0, 262197, 2, 0, 262198, 1, 0, 262199, 1, 0, 262200, 5, 0, 262201, 1, 0, 262202, 1, 0, 262203, 1, 0, 262204, 5, 0, 262205, 5, 0, 262206, 1, 0, 262207, 1, 0, 262208, 1, 0, 262209, 5, 0, 262210, 5, 0, 262211, 1, 0, 262212, 1, 0, 262213, 1, 0, 262214, 5, 0, 262215, 1, 0, 262216, 1, 0, 262217, 2, 0, 262218, 1, 0, 262219, 1, 0, 262220, 1, 0, 262221, 1, 0, 262222, 1, 0, 262223, 1, 0, 262224, 1, 0, 262225, 0, 0, 262226, 1, 0, 262227, 1, 0, 262228, 1, 0, 262229, 1, 0, 262230, 1, 0, 262231, 1, 0, 262232, 1, 0, 262233, 1, 0, 262234, 1, 0, 262235, 1, 0, 262236, 1, 0, 262237, 1, 0, 262238, 1, 0, 262239, 1, 0, 262240, 1, 0, 262241, 1, 0, 262242, 1, 0, 262243, 1, 0, 262244, 1, 0, 262245, 1, 0, 262246, 1, 0, 262247, 0, 0, 393215, 0, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 0, 0, 327698, 1, 0, 327699, 1, 0, 327700, 1, 0, 327701, 1, 0, 327702, 1, 0, 327703, 1, 0, 327704, 1, 0, 327705, 0, 0, 327706, 1, 0, 327707, 1, 0, 327708, 1, 0, 327709, 1, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 327719, 1, 0, 327720, 1, 0, 327721, 1, 0, 327722, 1, 0, 327723, 1, 0, 327724, 0, 0, 327725, 1, 0, 327726, 1, 0, 327727, 1, 0, 327728, 1, 0, 327729, 1, 0, 327730, 1, 0, 327731, 1, 0, 327732, 1, 0, 327733, 2, 0, 327734, 1, 0, 327735, 1, 0, 327736, 5, 0, 327737, 1, 0, 327738, 1, 0, 327739, 1, 0, 327740, 5, 0, 327741, 5, 0, 327742, 1, 0, 327743, 1, 0, 327744, 1, 0, 327745, 5, 0, 327746, 5, 0, 327747, 1, 0, 327748, 1, 0, 327749, 1, 0, 327750, 5, 0, 327751, 1, 0, 327752, 1, 0, 327753, 2, 0, 327754, 1, 0, 327755, 1, 0, 327756, 1, 0, 327757, 1, 0, 327758, 1, 0, 327759, 1, 0, 327760, 1, 0, 327761, 0, 0, 327762, 1, 0, 327763, 1, 0, 327764, 1, 0, 327765, 1, 0, 327766, 1, 0, 327767, 1, 0, 327768, 1, 0, 327769, 1, 0, 327770, 1, 0, 327771, 1, 0, 327772, 1, 0, 327773, 1, 0, 327774, 1, 0, 327775, 1, 0, 327776, 1, 0, 327777, 1, 0, 327778, 1, 0, 327779, 1, 0, 327780, 1, 0, 327781, 1, 0, 327782, 1, 0, 327783, 0, 0, 458751, 0, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 0, 0, 393234, 1, 0, 393235, 1, 0, 393236, 1, 0, 393237, 1, 0, 393238, 1, 0, 393239, 1, 0, 393240, 1, 0, 393241, 0, 0, 393242, 1, 0, 393243, 1, 0, 393244, 1, 0, 393245, 1, 0, 393246, 1, 0, 393247, 1, 0, 393248, 1, 0, 393249, 1, 0, 393250, 1, 0, 393251, 1, 0, 393252, 1, 0, 393253, 1, 0, 393254, 1, 0, 393255, 1, 0, 393256, 1, 0, 393257, 1, 0, 393258, 1, 0, 393259, 1, 0, 393260, 0, 0, 393261, 1, 0, 393262, 1, 0, 393263, 1, 0, 393264, 1, 0, 393265, 1, 0, 393266, 1, 0, 393267, 1, 0, 393268, 1, 0, 393269, 2, 0, 393270, 1, 0, 393271, 1, 0, 393272, 5, 0, 393273, 1, 0, 393274, 1, 0, 393275, 1, 0, 393276, 5, 0, 393277, 5, 0, 393278, 1, 0, 393279, 1, 0, 393280, 1, 0, 393281, 5, 0, 393282, 5, 0, 393283, 1, 0, 393284, 1, 0, 393285, 1, 0, 393286, 5, 0, 393287, 1, 0, 393288, 1, 0, 393289, 2, 0, 393290, 1, 0, 393291, 1, 0, 393292, 1, 0, 393293, 1, 0, 393294, 1, 0, 393295, 1, 0, 393296, 1, 0, 393297, 0, 0, 393298, 1, 0, 393299, 1, 0, 393300, 1, 0, 393301, 1, 0, 393302, 1, 0, 393303, 1, 0, 393304, 1, 0, 393305, 1, 0, 393306, 1, 0, 393307, 1, 0, 393308, 1, 0, 393309, 1, 0, 393310, 1, 0, 393311, 1, 0, 393312, 1, 0, 393313, 1, 0, 393314, 1, 0, 393315, 1, 0, 393316, 1, 0, 393317, 1, 0, 393318, 1, 0, 393319, 0, 0, 524287, 0, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458755, 1, 0, 458756, 1, 0, 458757, 1, 0, 458758, 1, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 0, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 0, 0, 458778, 1, 0, 458779, 1, 0, 458780, 1, 0, 458781, 1, 0, 458782, 1, 0, 458783, 1, 0, 458784, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 458788, 1, 0, 458789, 1, 0, 458790, 1, 0, 458791, 1, 0, 458792, 1, 0, 458793, 1, 0, 458794, 1, 0, 458795, 1, 0, 458796, 0, 0, 458797, 1, 0, 458798, 1, 0, 458799, 1, 0, 458800, 1, 0, 458801, 1, 0, 458802, 1, 0, 458803, 1, 0, 458804, 1, 0, 458805, 2, 0, 458806, 1, 0, 458807, 1, 0, 458808, 1, 0, 458809, 1, 0, 458810, 1, 0, 458811, 1, 0, 458812, 1, 0, 458813, 1, 0, 458814, 1, 0, 458815, 1, 0, 458816, 1, 0, 458817, 1, 0, 458818, 1, 0, 458819, 1, 0, 458820, 1, 0, 458821, 1, 0, 458822, 1, 0, 458823, 1, 0, 458824, 1, 0, 458825, 2, 0, 458826, 1, 0, 458827, 1, 0, 458828, 1, 0, 458829, 1, 0, 458830, 1, 0, 458831, 1, 0, 458832, 1, 0, 458833, 0, 0, 458834, 1, 0, 458835, 1, 0, 458836, 1, 0, 458837, 1, 0, 458838, 1, 0, 458839, 1, 0, 458840, 1, 0, 458841, 1, 0, 458842, 1, 0, 458843, 1, 0, 458844, 1, 0, 458845, 1, 0, 458846, 1, 0, 458847, 1, 0, 458848, 1, 0, 458849, 1, 0, 458850, 1, 0, 458851, 1, 0, 458852, 1, 0, 458853, 1, 0, 458854, 1, 0, 458855, 0, 0, 589823, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 524332, 0, 0, 524333, 1, 0, 524334, 1, 0, 524335, 1, 0, 524336, 1, 0, 524337, 1, 0, 524338, 1, 0, 524339, 1, 0, 524340, 1, 0, 524341, 2, 0, 524342, 2, 0, 524343, 2, 0, 524344, 2, 0, 524345, 2, 0, 524346, 2, 0, 524347, 2, 0, 524348, 2, 0, 524349, 2, 0, 524350, 2, 0, 524351, 2, 0, 524352, 2, 0, 524353, 2, 0, 524354, 2, 0, 524355, 2, 0, 524356, 2, 0, 524357, 2, 0, 524358, 2, 0, 524359, 2, 0, 524360, 2, 0, 524361, 2, 0, 524362, 1, 0, 524363, 1, 0, 524364, 1, 0, 524365, 1, 0, 524366, 1, 0, 524367, 1, 0, 524368, 1, 0, 524369, 0, 0, 524370, 0, 0, 524371, 0, 0, 524372, 0, 0, 524373, 0, 0, 524374, 0, 0, 524375, 0, 0, 524376, 0, 0, 524377, 0, 0, 524378, 0, 0, 524379, 0, 0, 524380, 0, 0, 524381, 0, 0, 524382, 0, 0, 524383, 0, 0, 524384, 0, 0, 524385, 0, 0, 524386, 0, 0, 524387, 0, 0, 524388, 0, 0, 524389, 0, 0, 524390, 0, 0, 524391, 0, 0, 655359, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 1, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 589867, 0, 0, 589868, 0, 0, 589869, 1, 0, 589870, 1, 0, 589871, 1, 0, 589872, 1, 0, 589873, 1, 0, 589874, 1, 0, 589875, 1, 0, 589876, 1, 0, 589877, 2, 0, 589878, 2, 0, 589879, 2, 0, 589880, 2, 0, 589881, 2, 0, 589882, 2, 0, 589883, 2, 0, 589884, 2, 0, 589885, 2, 0, 589886, 2, 0, 589887, 2, 0, 589888, 2, 0, 589889, 2, 0, 589890, 2, 0, 589891, 2, 0, 589892, 2, 0, 589893, 2, 0, 589894, 2, 0, 589895, 2, 0, 589896, 2, 0, 589897, 2, 0, 589898, 1, 0, 589899, 1, 0, 589900, 1, 0, 589901, 1, 0, 589902, 1, 0, 589903, 1, 0, 589904, 1, 0, 589905, 0, 0, 589906, 0, 0, 589907, 0, 0, 589908, 0, 0, 589909, 0, 0, 589910, 0, 0, 589911, 0, 0, 589912, 0, 0, 589913, 0, 0, 589914, 0, 0, 589915, 0, 0, 589916, 0, 0, 589917, 0, 0, 589918, 0, 0, 589919, 0, 0, 589920, 0, 0, 589921, 0, 0, 589922, 0, 0, 589923, 0, 0, 589924, 0, 0, 589925, 0, 0, 589926, 0, 0, 589927, 0, 0 )
+script = ExtResource( 11 )
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( 573, 452 )
+soft_death = true
+
+[node name="CoinInventoryHandle" parent="." instance=ExtResource( 14 )]
+
+[node name="CameraFollow" parent="." instance=ExtResource( 1 )]
+position = Vector2( -4, 1 )
+
+[node name="TitleRoom" type="Control" parent="."]
+margin_right = 1088.0
+margin_bottom = 510.0
+
+[node name="Title" type="VBoxContainer" parent="TitleRoom"]
+margin_left = 37.0
+margin_top = -100.0
+margin_right = 1046.0
+margin_bottom = 288.0
+theme = ExtResource( 7 )
+
+[node name="ALittle" type="Label" parent="TitleRoom/Title"]
+margin_right = 1009.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "A LITTLE"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StreetApothecary" type="RichTextLabel" parent="TitleRoom/Title"]
+margin_top = 134.0
+margin_right = 1009.0
+margin_bottom = 254.0
+rect_min_size = Vector2( 190, 120 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave amp=100 freq=2][rainbow freq=0.5 sat=1 val=1]STREET APOTHECARY[/rainbow]"
+text = "
+STREET APOTHECARY"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CalledMario" type="Label" parent="TitleRoom/Title"]
+margin_top = 258.0
+margin_right = 1009.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "CALLED MARIO"
+align = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Instructions" type="VBoxContainer" parent="TitleRoom"]
+margin_left = 67.0
+margin_top = 156.0
+margin_right = 1015.0
+margin_bottom = 420.0
+
+[node name="Instructions" type="Label" parent="TitleRoom/Instructions"]
+margin_right = 948.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Buy and sell ingredients to get as many coins as possible before time runs out.
+
+Watch out for Randal!"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TitleRoom/Instructions"]
+margin_top = 134.0
+margin_right = 948.0
+margin_bottom = 264.0
+
+[node name="LeaveImmediately" type="Label" parent="TitleRoom/Instructions/HBoxContainer"]
+margin_right = 472.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Leave"
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Start" type="Label" parent="TitleRoom/Instructions/HBoxContainer"]
+margin_left = 476.0
+margin_right = 948.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Start"
+align = 2
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BeginPortal" parent="TitleRoom" instance=ExtResource( 9 )]
+position = Vector2( 989, 470 )
+teleport_to = Vector2( 34, 7 )
+
+[node name="EndPortal" parent="TitleRoom" instance=ExtResource( 3 )]
+position = Vector2( 96, 468 )
+
+[node name="PortalRoom" type="Control" parent="."]
+margin_left = 1802.0
+margin_top = 48.0
+margin_right = 2651.0
+margin_bottom = 312.0
+
+[node name="PortalRoomInstructions" type="VBoxContainer" parent="PortalRoom"]
+margin_left = -1.0
+margin_top = 69.0
+margin_right = 844.0
+margin_bottom = 333.0
+
+[node name="Instructions" type="Label" parent="PortalRoom/PortalRoomInstructions"]
+margin_right = 845.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Jump into a portal to warp to an area"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PortalRoomLabels" type="HBoxContainer" parent="PortalRoom/PortalRoomInstructions"]
+margin_top = 134.0
+margin_right = 845.0
+margin_bottom = 264.0
+
+[node name="CastleLabel" type="Label" parent="PortalRoom/PortalRoomInstructions/PortalRoomLabels"]
+margin_right = 279.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Castle"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="IslandLabel" type="Label" parent="PortalRoom/PortalRoomInstructions/PortalRoomLabels"]
+margin_left = 283.0
+margin_right = 562.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Island"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DkLabel" type="Label" parent="PortalRoom/PortalRoomInstructions/PortalRoomLabels"]
+margin_left = 566.0
+margin_right = 845.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "DK"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CastlePortal" parent="PortalRoom" instance=ExtResource( 9 )]
+position = Vector2( 141, 263 )
+teleport_to = Vector2( 54, 7 )
+
+[node name="TBDPortal" parent="PortalRoom" instance=ExtResource( 9 )]
+position = Vector2( 422, 257 )
+teleport_to = Vector2( 84, 7 )
+
+[node name="CastleRoom" type="Control" parent="."]
+margin_left = 3458.0
+margin_top = 7.0
+margin_right = 4663.0
+margin_bottom = 508.0
+
+[node name="CastleRoomInstructions" type="VBoxContainer" parent="CastleRoom"]
+margin_left = 16.0
+margin_top = 14.0
+margin_right = 1167.0
+margin_bottom = 412.0
+
+[node name="Instructions" type="Label" parent="CastleRoom/CastleRoomInstructions"]
+margin_right = 1151.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Use the ! blocks to buy and sell ingredients
+
+use the portal to go to another location when you are done"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CastleRoomLabels" type="HBoxContainer" parent="CastleRoom/CastleRoomInstructions"]
+margin_top = 134.0
+margin_right = 1151.0
+margin_bottom = 264.0
+
+[node name="MushroomLabel" type="Label" parent="CastleRoom/CastleRoomInstructions/CastleRoomLabels"]
+margin_right = 381.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "buy
+
+Mushrooms
+
+1 Coin/Each"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StarPowderLabel" type="Label" parent="CastleRoom/CastleRoomInstructions/CastleRoomLabels"]
+margin_left = 385.0
+margin_right = 766.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "SELL
+
+Star Powder"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CornLabel" type="Label" parent="CastleRoom/CastleRoomInstructions/CastleRoomLabels"]
+margin_left = 770.0
+margin_right = 1151.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "BUY
+
+Corn"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BackToPortalRoomLabel" type="Label" parent="CastleRoom/CastleRoomInstructions"]
+margin_top = 268.0
+margin_right = 1151.0
+margin_bottom = 398.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Back"
+align = 2
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AngryRandal" parent="CastleRoom" instance=ExtResource( 8 )]
+position = Vector2( 28, 26 )
+z_index = 20
+moveDuration = 1
+waitTimeBetweenSwoops = 5
+
+[node name="AngryRandal2" parent="CastleRoom" instance=ExtResource( 8 )]
+position = Vector2( 412, -32 )
+z_index = 20
+moveDuration = 1
+waitTimeBetweenSwoops = 5
+
+[node name="MushroomBox" parent="CastleRoom" instance=ExtResource( 4 )]
+position = Vector2( 281, 338 )
+script = ExtResource( 12 )
+bounce_count = 99999
+ingredient = "mushroom"
+cost = -1
+ingredientChangeAmount = 1
+
+[node name="StarPowderBox" parent="CastleRoom" instance=ExtResource( 4 )]
+position = Vector2( 600, 342 )
+script = ExtResource( 12 )
+bounce_count = 99999
+ingredient = "mushroom"
+cost = -1
+ingredientChangeAmount = 1
+
+[node name="CornBox" parent="CastleRoom" instance=ExtResource( 4 )]
+position = Vector2( 920, 346 )
+
+[node name="BackToPortalRoom" parent="CastleRoom" instance=ExtResource( 9 )]
+position = Vector2( 1142, 475 )
+teleport_to = Vector2( 34, 7 )
+
+[node name="TimerUI" type="CanvasLayer" parent="."]
+
+[node name="ApothecaryInventory" parent="." instance=ExtResource( 10 )]
+
+[node name="TBD" type="Control" parent="."]
+margin_left = 3132.0
+margin_top = -591.0
+margin_right = 4663.0
+margin_bottom = 508.0
+
+[node name="TBDRoomInstructions" type="VBoxContainer" parent="TBD"]
+anchor_left = -0.286
+anchor_top = 1.687
+anchor_right = -0.286
+anchor_bottom = 1.687
+margin_left = 2904.87
+margin_top = -1287.01
+margin_right = 3600.87
+margin_bottom = -857.013
+
+[node name="Instructions" type="Label" parent="TBD/TBDRoomInstructions"]
+margin_right = 696.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Use the ! blocks to buy and sell ingredients
+
+use the portal to go to another location when you are done"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TBDRoomLabels" type="HBoxContainer" parent="TBD/TBDRoomInstructions"]
+margin_top = 134.0
+margin_right = 696.0
+margin_bottom = 264.0
+
+[node name="MushroomLabel" type="Label" parent="TBD/TBDRoomInstructions/TBDRoomLabels"]
+margin_right = 229.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Sell
+
+Mushrooms
+
+2 Coins/Each"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StarPowderLabel" type="Label" parent="TBD/TBDRoomInstructions/TBDRoomLabels"]
+margin_left = 233.0
+margin_right = 462.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "SELL
+
+Star Powder"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CornLabel" type="Label" parent="TBD/TBDRoomInstructions/TBDRoomLabels"]
+margin_left = 466.0
+margin_right = 696.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "BUY
+
+Corn"
+align = 1
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BackToPortalRoomLabel" type="Label" parent="TBD/TBDRoomInstructions"]
+margin_top = 268.0
+margin_right = 696.0
+margin_bottom = 398.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource( 7 )
+text = "Back"
+align = 2
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MushroomBox" parent="TBD" instance=ExtResource( 4 )]
+position = Vector2( 2583, 889 )
+script = ExtResource( 12 )
+bounce_count = 99999
+ingredient = "mushroom"
+cost = 2
+ingredientChangeAmount = -1
+
+[node name="StarPowderBox" parent="TBD" instance=ExtResource( 4 )]
+position = Vector2( 2827, 877 )
+script = ExtResource( 12 )
+bounce_count = 99999
+ingredient = "mushroom"
+cost = -1
+ingredientChangeAmount = 1
+
+[node name="CornBox" parent="TBD" instance=ExtResource( 4 )]
+position = Vector2( 3052, 886 )
+
+[node name="BackToPortalRoom" parent="TBD" instance=ExtResource( 9 )]
+position = Vector2( 3371, 1039 )
+teleport_to = Vector2( 34, 7 )
+
+[node name="normal_cactus" parent="TBD" instance=ExtResource( 13 )]
+position = Vector2( 2210, 1035 )
+scale = Vector2( 2, 2 )
+frame = 0

@@ -41,3 +41,6 @@ signal bus_collected(data)
 signal player_spotted(spotted_by, player)
 
 signal big_button_pressed(button_id)
+
+signal update_ingredient_count(_data)
+signal intralevel_teleport_used(_data)

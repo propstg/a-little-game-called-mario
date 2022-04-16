@@ -33,6 +33,7 @@ var super_jumping = false
 var super_jump_timer = 0.0
 var powerupspeed = 1
 var powerupaccel = 1
+var soft_death = false # used to trigger death event for mini-game without actually killing the player
 
 onready var sprite = $Sprite
 onready var anim = $Sprite/Anims
@@ -54,6 +55,7 @@ func _enter_tree():
 	EventBus.connect("heart_changed", self, "_on_heart_change")
 	EventBus.connect("enemy_hit_coin", self, "_on_enemy_hit_coin")
 	EventBus.connect("enemy_hit_fireball", self, "_on_enemy_hit_fireball")
+	EventBus.connect("set_soft_death", self, "_on_set_soft_death")
 
 
 func _exit_tree():
@@ -61,6 +63,7 @@ func _exit_tree():
 	EventBus.disconnect("heart_changed", self, "_on_heart_change")
 	EventBus.disconnect("enemy_hit_coin", self, "_on_enemy_hit_coin")
 	EventBus.disconnect("enemy_hit_fireball", self, "_on_enemy_hit_fireball")
+	EventBus.disconnect("set_soft_death", self, "_on_set_soft_death")
 
 
 func _physics_process(delta: float) -> void:
@@ -347,10 +350,16 @@ func _on_heart_change(data):
 		flash_sprite()
 
 	if inventory.hearts <= 0:
-		EventBus.emit_signal("player_died")
-		if get_tree() != null:
-			yield(get_tree().create_timer(2.0), "timeout")
-			get_tree().reload_current_scene()
+		print("is soft_death enabled from player perspective: ", soft_death)
+		if soft_death:
+			print("died softly")
+			EventBus.emit_signal("player_died_softly")
+		else:
+			print("died hard")
+			EventBus.emit_signal("player_died")
+			if get_tree() != null:
+				yield(get_tree().create_timer(2.0), "timeout")
+				get_tree().reload_current_scene()
 
 
 func _on_enemy_hit_coin():
@@ -380,3 +389,4 @@ func set_hitbox_crouching(value: bool):
 	else:
 		$CollisionShape2D.shape.extents.y = 27
 		$CollisionShape2D.position.y = 5
+

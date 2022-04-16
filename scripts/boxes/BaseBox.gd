@@ -16,7 +16,7 @@ onready var tween = $Tween
 onready var audio_meow = $MeowStream
 
 func _ready():
-	hitArea.connect("body_entered", self, "_on_box_entered")
+	connectHitAreaHandler()
 	if start_invisible:
 		sprite.visible = false
 
@@ -54,3 +54,10 @@ func disable():
 	sprite.modulate = sprite.modulate.darkened(0.4)
 	hitArea.disconnect("body_entered", self, "_on_box_entered")
 
+func reenable():
+	connectHitAreaHandler()
+	sprite.modulate = sprite.modulate.darkened(0)
+	
+func connectHitAreaHandler():
+	if not hitArea.is_connected("body_entered", self, "_on_box_entered"):
+		hitArea.connect("body_entered", self, "_on_box_entered")

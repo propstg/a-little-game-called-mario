@@ -1,6 +1,8 @@
 class_name SpawnPoint
 extends Position2D
 
+export var soft_death: bool = false
+
 var player_scene = load("res://scenes/Player.tscn")
 
 
@@ -22,3 +24,4 @@ func spawn_mario():
 
 	player.position = self.position
 	player.visible = true
+	player.soft_death = soft_death

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://scenes/doodads/helpful_signpost.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/TileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/EndPortal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Coin/Coin.tscn" type="PackedScene" id=4]
@@ -139,3 +140,7 @@ position = Vector2( 139, 422 )
 
 [node name="CameraFollow" parent="." instance=ExtResource( 8 )]
 follow_vertically = true
+
+[node name="helpful_signpost" parent="." instance=ExtResource( 1 )]
+position = Vector2( 997, -33 )
+rotation = 4.73508
